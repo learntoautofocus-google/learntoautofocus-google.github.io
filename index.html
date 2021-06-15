@@ -1,0 +1,216 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0034)https://mannequin-depth.github.io/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+	<style>
+  @import url(//fonts.googleapis.com/css?family=Google+Sans);
+  h1 { font-family: 'Google Sans', Arial, sans-serif; }
+</style>
+
+<title>
+Learning to Autofocus
+</title>
+<link href="./LearnToAutofocus_files/style.css" rel="stylesheet" type="text/css">
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script type="text/javascript" async="" src="./LearnToAutofocus_files/analytics.js"></script><script async="" src="./LearnToAutofocus_files/js"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-65563403-3');
+</script>   
+</head>
+<body>
+<div class="container">
+  <p>&nbsp;</p>
+  <p><span class="title">Learning to Autofocus</span>  </p>
+  <table border="0" align="center" class="authors">
+    <tbody><tr align="center">
+      <td><a href="https://scholar.google.com/citations?user=LQvi5XAAAAAJ&hl=en">Charles Herrmann</a></td>
+      <td><a href="">Richard Strong Bowen</a></td>
+      <td><a href="https://nealwadhwa.com/">Neal Wadhwa</a>
+      <td><a href="https://rahuldotgarg.appspot.com/">Rahul Garg </a></td>
+      <td><a href="https://www.linkedin.com/in/qiuruihe/">Qiurui He </a></td>
+    </tr>
+  </tbody></table>
+  <table border="0" align="center" class="authors">
+    <tbody><tr align="center">
+      <td><a href="https://jonbarron.info/"> Jonathan T. Barron</a></td>
+      <td><a https://www.cs.cornell.edu/rdz/ href=" ">Ramin Zabih </a></td>
+    </tr>
+  </tbody></table>  
+  <table border="0" align="center" class="affiliations">
+    <tbody><tr>
+      <td align="center"><img src="./LearnToAutofocus_files/GoogleAI_logo.png" width="50" height="48" alt=""></td>
+      <td align="left"><a href="https://research.google.com/">Google Research</a></td>
+    </tr>
+  </tbody></table>
+
+  <table width="999" border="0">
+    <tbody>
+      <tr>
+        <td align="center">| <a href="https://www.learntoautofocus-google.github.io/#paper">Paper</a> |
+         <a href="https://www.learntoautofocus-google.github.io/#capture">Dataset Capture</a> | 
+         <a href="https://www.learntoautofocus-google.github.io/#samples">Samples of RGB and Depth</a> | 
+         <a href="https://www.learntoautofocus-google.github.io/#data">Dataset</a> |
+       </td>
+      </tr>
+    </tbody>
+  </table>
+  <br>
+<table width="200" border="0" align="center">
+    <tbody><tr>
+      <td><img src="./LearnToAutofocus_files/laf_teaser.png" width="990" alt="" style="margin:0% 0px -1% 0px"></td>
+    </tr>
+    <tr>
+      <td class="caption">
+      <p>
+         <b>Left: Our Dataset</b>.  We provide a realistic dataset of 510 focal stacks captured "in the wild" along with a computed depth from SFM on 5 different views. These focal stacks have a large variation in color, texture, scene elements, and depth. <b>Middle: Our Problem Formulation</b> We define Autofocus as three different problems: single-slice where the algorithm receives a single capture at a random starting point and then estimates the most in-focus index; focal stack where the algorithm receives the full focal stack and then estimates the most in-focus index; and two-step where the algorithm receives a single capture at a random starting point but can then pick the next index to capture, then the algorithm uses these two captures to estimate the most in-focus index. For each of these formulations, we run computations on two different input values: conventional sensor data and dual pixel sensor data. <b> Right: Our Results</b> Our network results in substantial improvements over the baselines, leading to a 4x improvement in single slice, 3x in two-step, and ~1.5x in full focal stack.
+    </p>
+    </td>
+    </tr>
+  </tbody></table>
+<!--   <table width="998" border="0">
+    <tbody>
+      <tr>
+        <td width="292" align="right"><img src="./LearnToAutofocus_files/new.gif" width="65" height="35" alt=""></td>
+        <td width="403"><span class="venue">AutoFlow dataset<a href=" "> is now available</a>!</span></td>
+        <td width="289"><img src="./LearnToAutofocus_files/new.gif" width="65" height="35" alt=""></td>
+      </tr>
+    </tbody>
+  </table> -->
+  <p><span class="section">Abstract</span> </p>
+  <p>
+Autofocus is an important task for digital cameras, yet current approaches often exhibit poor performance. We propose a learning-based approach to this problem, and provide a realistic dataset of sufficient size for effective learning. Our dataset is labeled with per-pixel depths obtained from multi-view stereo, following \cite{GargICCV2019}.
+Using this dataset, we apply modern deep classification models and an ordinal regression loss to obtain an efficient learning-based autofocus technique. 
+We demonstrate that our approach provides a significant improvement compared with previous learned and non-learned methods: our model reduces the mean absolute error by a factor of 3.6 over the best comparable baseline algorithm. 
+Our dataset is publicly available.
+  <br>
+  </p>
+  <p class="section">&nbsp;</p>
+
+<!--   <table width="200" border="0" align="center">
+    <tbody>
+      <tr>
+        <td><iframe src="./LearnToAutofocus_files/fj_fK74y5_0.html" width="853" height="480" frameborder="0" id="video" aligh="center" allowfullscreen=""></iframe></td>
+      </tr>
+    </tbody>
+  </table> -->
+  <p class="section" id="paper">Papers</p>
+  <table width="940" border="0">
+    <tbody>
+      <tr>
+        <td width="175" height="100" align="left"><a href=" "><img src="./LearnToAutofocus_files/Artboard 1@0.75x.png" alt="" width="140" height="167"></a></td>
+        <td width="5" rowspan="2">&nbsp;</td>
+        <td width="645"><p>"Learning to Autofocus"<br>
+            Charles Herrmann, Richard Strong Bowen, Neal Wadhwa, Rahul Garg, Qiurui He, Jonathan T. Barron, and Ramin Zabih<br></p>
+          <p><em>CVPR 2020<br>
+            <br>
+        </em>[<a href="https://arxiv.org/abs/2004.12260">Arxiv</a>][<a href="https://openaccess.thecvf.com/content_CVPR_2020/html/Herrmann_Learning_to_Autofocus_CVPR_2020_paper.html">CVF</a>] 
+        <br>
+        <br>
+        </p>
+      </td>
+      </tr>
+    </tbody>
+  </table>
+
+  <!-- <p class="section">&nbsp;</p> -->
+    <p class="section", id="capture">Dataset Capture</p>
+  <table width="880" height="20" border="0">
+
+<tbody><tr>
+    <td>
+    <img src="./LearnToAutofocus_files/dataset/camera.jpg" width="162" height="192">
+    <img src="./LearnToAutofocus_files/dataset/annotated_rgb.png" width="162" height="192">
+    <img src="./LearnToAutofocus_files/dataset/annotated_depth.png" width="162" height="192">
+    <img src="./LearnToAutofocus_files/dataset/focal_stack_labeled_barron.jpg" width="340" height="192">
+    </td>
+    <td>
+    
+  </tr>
+</tbody></table>
+
+
+  <p class="section", id="samples">Samples of RGB and Depth</p>
+  <table width="587" height="136" border="0">
+
+<tbody><tr>
+    <td>
+    <img src="./LearnToAutofocus_files/Samples/im1.jpg" width="162" height="192">
+    <img src="./LearnToAutofocus_files/Samples/im1d.jpg" width="162" height="192">
+    </td>
+    
+    <td>
+    <img src="./LearnToAutofocus_files/Samples/im2.jpg" width="162" height="192">
+    <img src="./LearnToAutofocus_files/Samples/im2d.jpg" width="162" height="192">
+    </td>
+    <td>
+    <img src="./LearnToAutofocus_files/Samples/im3.jpg" width="162" height="192">
+    <img src="./LearnToAutofocus_files/Samples/im3d.jpg" width="162" height="192">
+    </td>
+    <td>
+    <img src="./LearnToAutofocus_files/Samples/im4.jpg" width="162" height="192">
+    <img src="./LearnToAutofocus_files/Samples/im4d.jpg" width="162" height="192">
+    </td>
+    <td>
+    <img src="./LearnToAutofocus_files/Samples/im5.jpg" width="162" height="192">
+    <img src="./LearnToAutofocus_files/Samples/im5d.jpg" width="162" height="192">
+    </td>
+    <td>
+    <img src="./LearnToAutofocus_files/Samples/im6.jpg" width="162" height="192">
+    <img src="./LearnToAutofocus_files/Samples/im6d.jpg" width="162" height="192">
+    </td>
+    
+  </tr>
+  
+  <tr>
+    <td>
+    <img src="./LearnToAutofocus_files/Samples/im7.jpg" width="162" height="192">
+    <img src="./LearnToAutofocus_files/Samples/im7d.jpg" width="162" height="192">
+    </td>
+    
+    <td>
+    <img src="./LearnToAutofocus_files/Samples/im8.jpg" width="162" height="192">
+    <img src="./LearnToAutofocus_files/Samples/im8d.jpg" width="162" height="192">
+    </td>
+    <td>
+    <img src="./LearnToAutofocus_files/Samples/im9.jpg" width="162" height="192">
+    <img src="./LearnToAutofocus_files/Samples/im9d.jpg" width="162" height="192">
+    </td>
+    <td>
+    <img src="./LearnToAutofocus_files/Samples/im10.jpg" width="162" height="192">
+    <img src="./LearnToAutofocus_files/Samples/im10d.jpg" width="162" height="192">
+    </td>
+    <td>
+    <img src="./LearnToAutofocus_files/Samples/im11.jpg" width="162" height="192">
+    <img src="./LearnToAutofocus_files/Samples/im11d.jpg" width="162" height="192">
+    </td>
+    <td>
+    <img src="./LearnToAutofocus_files/Samples/im12.jpg" width="162" height="192">
+    <img src="./LearnToAutofocus_files/Samples/im12d.jpg" width="162" height="192">
+    </td>
+  </tr>
+</tbody></table>
+
+  <p class="section", id="data">Dataset</p>
+  <p><a href="https://storage.googleapis.com/cvpr2020-af-data/LearnAF%20Dataset%20Readme.pdf">Readme</a></p>
+
+<p><a href="https://storage.googleapis.com/cvpr2020-af-data/test.tar.gz">Test (89 GB)</a></p>
+
+<p>Training Set: Split over 7 archives<br>
+<a href="https://storage.googleapis.com/cvpr2020-af-data/train1.tar.gz"> Train1 (95 GB)</a> <br>
+<a href="https://storage.googleapis.com/cvpr2020-af-data/train2.tar.gz"> Train2 (100 GB)</a> <br>
+<a href="https://storage.googleapis.com/cvpr2020-af-data/train3.tar.gz"> Train3 (99 GB) </a> <br>
+<a href="https://storage.googleapis.com/cvpr2020-af-data/train4.tar.gz"> Train4 (102 GB) </a> <br>
+<a href="https://storage.googleapis.com/cvpr2020-af-data/train5.tar.gz"> Train5 (99 GB) </a> <br>
+<a href="https://storage.googleapis.com/cvpr2020-af-data/train6.tar.gz"> Train6 (99 GB) </a><br>
+<a href="https://storage.googleapis.com/cvpr2020-af-data/train7.tar.gz"> Train7 (87 GB)</a></p>
+  <p class="section", id="code">Code</p>
+  We are happy to take any questions on the code. The code follows the standard classification pipeline with Ordinal Regression loss and a slightly altered MobileNetV2 (details included in the paper). Please contact cih at cs dot cornell dot edu if you have any questions.
+
+
+
+
+
+</body></html>
